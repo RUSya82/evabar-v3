@@ -266,7 +266,31 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     menuScroll();
 
-
+    const startAnimate = (form) => {
+        const animate = form.querySelector('.waiting');
+        animate.classList.remove('d-none');
+    }
+    const stopAnimate = (form) => {
+        const animate = form.querySelector('.waiting');
+        animate.classList.add('d-none');
+    }
+    const animateCheckbox = (form) => {
+        const checkBox = form.querySelector('.form__policy-label');
+        checkBox.classList.add('form-animate-label');
+        setTimeout(() => {
+            checkBox.classList.remove('form-animate-label');
+        }, 1000)
+    }
+    const validCheckBox = (form) => {
+      const checkBox = form.querySelector('.form__policy-checkbox');
+      return checkBox.checked;
+    };
+    const showWarningMessage = (form) => {
+      const oldMessage = form.querySelector('.form__policy-message');
+      const newMessage = form.querySelector('.form__policy-message--warning');
+      oldMessage.classList.add('d-none');
+      newMessage.classList.remove('d-none');
+    };
 
     const bindModalForm = () => {
         // forms
@@ -290,25 +314,34 @@ document.addEventListener('DOMContentLoaded', () => {
             targetForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 if (!validObject.init()){
-                    const formData = new FormData(targetForm);
-                    const body = {};
-                    formData.forEach((item, index) => body[index] = item);
-                    // send data
-                    postData(JSON.stringify(body))
-                        .then((response) => {
-                            if (response.status !== 200) {
-                                throw new Error('status not 200');
-                            }
-                            return response.text()
-                        }).then((response) => {
+                    if(validCheckBox(targetForm)){
+                        startAnimate(targetForm);
+                        const formData = new FormData(targetForm);
+                        const body = {};
+                        formData.forEach((item, index) => body[index] = item);
+                        // send data
+                        postData(JSON.stringify(body))
+                            .then((response) => {
+                                if (response.status !== 200) {
+                                    throw new Error('status not 200');
+                                }
+                                stopAnimate(targetForm);
+                                return response.text()
+                            }).then((response) => {
                             targetForm.reset();
                             closeModal(orderModal, () => {
                                 openModal(modalThanks);
                                 setTimeout(closeModal, 2000, modalThanks);
                             });
                         }).catch((error) => {
+                            stopAnimate(targetForm);
                             console.error(error);
                         });
+                    } else {
+                        animateCheckbox(targetForm);
+                        showWarningMessage(targetForm);
+                    }
+
                 } else {
                     validObject.showErrors();
                     formMessage.classList.add('show');

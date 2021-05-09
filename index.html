@@ -292,15 +292,20 @@
                     </div>                    
                 </div>
                 <div class="form__policy">
-                    <input class="form__policy-checkbox" type="checkbox" name="policy" id="policy-checkbox" checked required>
+                    <input class="form__policy-checkbox" type="checkbox" name="policy" id="policy-checkbox" checked >
                     <label for="policy-checkbox" class="form__policy-label">
-                        <span>Я соглашаюсь с <a href="#"> политикой конфиденциальности</a></span>
+                        <span class="form__policy-message">Я соглашаюсь с <a href="#"> политикой конфиденциальности</a></span>
+                        <span class="d-none form__policy-message--warning">Необходимо согласиться с <a href="#"> политикой конфиденциальности</a>!</span>
                     </label>
                 </div>
+
                 <div class="form__message">Данные введены некорректно</div>
                 
             </div>
             <button class="form__button button">отправить</button>
+            <div class="waiting d-none">
+                <img src="img/forms/waiting.gif" alt="">
+            </div>
         </form>
     </section>
 
@@ -346,14 +351,18 @@
                         </div>                    
                     </div>
                     <div class="form__policy">
-                        <input class="form__policy-checkbox" type="checkbox" name="policy-checkbox" id="policy-checkbox-modal" checked required>
+                        <input class="form__policy-checkbox" type="checkbox" name="policy-checkbox" id="policy-checkbox-modal" checked >
                         <label for="policy-checkbox-modal" class="form__policy-label">
-                            <span>Я соглашаюсь с <a href="#"> политикой конфиденциальности</a></span>
+                            <span class="form__policy-message">Я соглашаюсь с <a href="#"> политикой конфиденциальности</a></span>
+                            <span class="d-none form__policy-message--warning">Необходимо согласиться с <a href="#"> политикой конфиденциальности</a>!</span>
                         </label>
                     </div>
                     <div class="form__message">Данные введены некорректно</div>
                 </div>
                 <button class="form__button button">отправить</button>
+                <div class="waiting d-none">
+                    <img src="img/forms/waiting.gif" alt="">
+                </div>
             </form>
         </div>
     </div>
