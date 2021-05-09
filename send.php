@@ -42,8 +42,8 @@ try {
     $mail->setFrom('im.rusalim.ne@gmail.com', 'Инновационные коврики для авто - evabar.by'); // Адрес самой почты и имя отправителя
 
     // Получатель письма
-    $mail->addAddress('salexandervl@gmail.com');
-    // $mail->addAddress('mail-spam2012@yandex.ru');
+    //$mail->addAddress('salexandervl@gmail.com');
+     $mail->addAddress('mail-spam2012@yandex.ru');
 
 // Отправка сообщения
     $mail->isHTML(true);

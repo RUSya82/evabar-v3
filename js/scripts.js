@@ -25,6 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
             body.style.marginRight = `0`;
         }
     }
+    const blockBody = () => {
+        const body = document.body;
+        if (!body.classList.contains('lock')) {
+            body.classList.add('lock');
+            const bodyScroll = calcScroll();
+            body.style.marginRight = `${bodyScroll}px`;
+        }
+    }
+    const unBlockBody = () => {
+        setTimeout(() => {
+            const body = document.body;
+            if (body.classList.contains('lock')){
+                body.classList.remove('lock');
+                body.style.marginRight = `0`;
+            }
+        }, 200)
+    }
     /**
      * Класс валидатор формы
      * передается id формы и массив объектов вида
@@ -224,14 +241,15 @@ document.addEventListener('DOMContentLoaded', () => {
         animateScroll();
     };
 
-    const openModal = (modal) => {
+    const openModal = (modal, callback = blockBody) => {
         modal.classList.remove('unblock');
-        toggleLockBody();
+        callback();
     };
-    const closeModal = (modal) => {
+    const closeModal = (modal, callBack = unBlockBody) => {
         modal.classList.add('unblock');
-        setTimeout(toggleLockBody, 200);
+        callBack();
     };
+
     /*-------------- LIBRARY END---------------------------------------*/
     const menuScroll = () => {
         const menu = document.querySelector('.menu');
@@ -253,6 +271,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const bindModalForm = () => {
         // forms
         const orderForms = document.querySelectorAll('.order-form');
+        const orderModal = document.querySelector('.order-modal');
+        const modalThanks = document.querySelector('.modal-thanks');
+
         /**
          * send data from modal and validate forms after submit
          * @param targetForm - form for binding(element)
@@ -280,14 +301,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             }
                             return response.text()
                         }).then((response) => {
-                        targetForm.reset();
-                        const modal = document.querySelector('.modal');
-                        if (!modal.classList.contains('unblock')) {
-                            closeModal(modal);
-                        }
-                    }).catch((error) => {
-                        console.error(error);
-                    });
+                            targetForm.reset();
+                            closeModal(orderModal, () => {
+                                openModal(modalThanks);
+                                setTimeout(closeModal, 2000, modalThanks);
+                            });
+                        }).catch((error) => {
+                            console.error(error);
+                        });
                 } else {
                     validObject.showErrors();
                     formMessage.classList.add('show');
@@ -327,17 +348,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const bindModal = () => {
         const button = document.querySelector('.main-display__button');
-        const modal = document.querySelector('.modal__overlay');
+        const modals = document.querySelectorAll('.modal__overlay');
+        const orderModal = document.querySelector('.order-modal');
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            openModal(modal);
+            openModal(orderModal);
         });
-        modal.addEventListener('click', (e) => {
-            const isModal = e.target.closest('.modal-content');
-            if (!isModal) {
-                closeModal(modal);
-            }
-        })
+        modals.forEach((item) => {
+            item.addEventListener('click', (e) => {
+                const isModal = e.target.closest('.modal-content');
+                if (!isModal) {
+                    closeModal(item);
+                }
+            });
+        });
+
     };
     bindModal();
 

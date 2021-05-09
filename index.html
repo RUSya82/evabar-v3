@@ -6,7 +6,8 @@
     <meta name="Keywords" content=".">
     <meta name="description" content="EVA - коврики для автомобилей в Барановичах, купить EVA коврики, что такое EVA коврики, eva коврики для легкового автомобиля">
     <!-- <link rel="stylesheet" href="css/main.css"> -->
-    <link rel="stylesheet" href="css/index.css">
+<!--    <link rel="stylesheet" href="css/index.css">-->
+    <link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/swiper-bundle.css">
     <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
     <script defer src="js/swiper-bundle.js"></script>
@@ -292,11 +293,11 @@
                 </div>
                 <div class="form__policy">
                     <input class="form__policy-checkbox" type="checkbox" name="policy" id="policy-checkbox" checked required>
-                    <label for="policy-checkbox" class="form__policy-label">                        
+                    <label for="policy-checkbox" class="form__policy-label">
                         <span>Я соглашаюсь с <a href="#"> политикой конфиденциальности</a></span>
                     </label>
-                    <div class="form__message">Данные введены некорректно</div>
                 </div>
+                <div class="form__message">Данные введены некорректно</div>
                 
             </div>
             <button class="form__button button">отправить</button>
@@ -326,7 +327,7 @@
         </div>
     </footer>
 
-    <div class="modal__overlay modal unblock ">
+    <div class="modal__overlay modal order-modal unblock ">
         <div class="form modal-content">
             <form class="form-application order-form">
                 <h2 class="form__header">Форма заявки</h2>
@@ -345,16 +346,23 @@
                         </div>                    
                     </div>
                     <div class="form__policy">
-                        <input class="form__policy-checkbox" type="checkbox" name="policy" id="policy-checkbox" checked required>
-                        <label for="policy-checkbox" class="form__policy-label">                        
+                        <input class="form__policy-checkbox" type="checkbox" name="policy-checkbox" id="policy-checkbox-modal" checked required>
+                        <label for="policy-checkbox-modal" class="form__policy-label">
                             <span>Я соглашаюсь с <a href="#"> политикой конфиденциальности</a></span>
                         </label>
-                        <div class="form__message">Данные введены некорректно</div>
                     </div>
                     <div class="form__message">Данные введены некорректно</div>
                 </div>
                 <button class="form__button button">отправить</button>
             </form>
+        </div>
+    </div>
+    <div class="modal__overlay modal modal-thanks unblock ">
+        <div class="modal-content modal-thanks__content">
+            <div class="modal-thanks__wrapper">
+                <p>Спасибо за обращение</p>
+                <p>Мы скоро в Вами свяжемся</p>
+            </div>
         </div>
     </div>
 
