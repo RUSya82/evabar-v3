@@ -766,6 +766,9 @@ body {
   justify-content: space-evenly;
   min-width: 0;
   align-items: center; }
+  .reviews__content {
+    overflow: hidden;
+    max-width: 98%; }
   .reviews__item {
     width: 536px;
     height: 187px;
@@ -787,7 +790,9 @@ body {
   opacity: .5;
   margin-top: 58px;
   margin-bottom: 58px;
-  max-width: 536px; }
+  width: 536px; }
+  .reviews-item:hover {
+    cursor: pointer; }
   .reviews-item__line {
     width: 130px;
     border: none;

@@ -37,7 +37,7 @@ var mySwiperReview = new Swiper('.reviews__slider', {
 	slideToClickedSlide: true,
 	// autoHeight: true,
 	// zoom: true,
-	// toggle: true,
+	 toggle: true,
 	breakpoints: {
 		320: {
 			slidesPerView: 1
@@ -49,7 +49,7 @@ var mySwiperReview = new Swiper('.reviews__slider', {
 			slidesPerView: 2
 		},
 		1100: {
-			slidesPerView: 2
+			slidesPerView: 3
 		}
 	},
 });
