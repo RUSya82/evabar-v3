@@ -811,10 +811,15 @@ body {
     position: absolute;
     left: 50%;
     top: -30%;
-    transform: translateX(-50%); }
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #e29bb5 -0.03%, #adaee6 100.01%); }
 
 .swiper-slide-active {
   opacity: 1; }
+
+@media (max-width: 768px) {
+  .reviews {
+    flex-direction: column; } }
 
 .form {
   margin-bottom: 80px; }
