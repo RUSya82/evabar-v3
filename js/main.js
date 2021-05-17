@@ -54,13 +54,13 @@ var mySwiperReview = new Swiper('.reviews__slider', {
 	},
 });
 // mySwiperReview.changeDirection(direction, needUpdate)
-window.addEventListener('resize', () => {
-	const windowWidth = document.documentElement.clientWidth;
-	if(windowWidth < 768){
-		mySwiperReview.changeDirection('vertical', true)
-	}
-});
-const windowWidth = document.documentElement.clientWidth;
+// window.addEventListener('resize', () => {
+// 	const windowWidth = document.documentElement.clientWidth;
+// 	if(windowWidth < 768){
+// 		mySwiperReview.changeDirection('vertical', true)
+// 	}
+// });
+// const windowWidth = document.documentElement.clientWidth;
 //let mySwiperReview;
 // if(windowWidth > 768){
 // 	mySwiperReview = new Swiper('.reviews__slider', {
