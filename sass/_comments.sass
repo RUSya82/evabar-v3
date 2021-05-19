@@ -13,11 +13,15 @@
     overflow: hidden
     max-width: 98%
   &__item
-    width: 536px
+    max-width: 536px
     height: 187px
     background: #FFFFFF
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.25)
     border-radius: 9px
+  &__slide
+    display: flex
+    justify-content: center
+    align-items: center
 
 .reviews-item
   display: flex
@@ -33,7 +37,7 @@
   opacity: .5
   margin-top: 58px
   margin-bottom: 58px
-  width: 536px
+  //width: 536px
   &:hover
     cursor: pointer
 
@@ -62,7 +66,18 @@
 
     //clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
 .swiper-slide-active
-  opacity: 1
+  .reviews-item
+    opacity: 1
 @media (max-width: 768px)
+  .reviews__slider
+    height: 357px
+@media (max-width: 580px)
   .reviews
-    flex-direction: column
+    &__item
+      height: 210px
+      width: 83%
+    &-item
+      font-size: 12px
+      font-weight: 300
+      line-height: 14px
+      padding: 63px 25px 20px 25px
