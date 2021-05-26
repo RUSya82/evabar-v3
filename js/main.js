@@ -141,6 +141,7 @@ mySwiperReview = new Swiper('.reviews__slider', {
     spaceBetween: 50,
     centeredSlides: true,
     slideToClickedSlide: true,
+    touchRatio: 2,
     // autoHeight: true,
     // zoom: true,
     toggle: true,

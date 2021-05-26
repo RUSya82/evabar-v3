@@ -15,6 +15,7 @@ gulp.task('sass', () => {
         }))
         .pipe(concat('main.css'))
         .pipe(autoprefix({
+            grid: true,
             browsersList: ['last 8 versions'],
             cascade: true
         }))
